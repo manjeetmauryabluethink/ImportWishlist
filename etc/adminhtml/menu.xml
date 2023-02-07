@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Bluethinkinc_ImportWishlist::wishlist" title="Bluethink" translate="title" 
+        module="Bluethinkinc_ImportWishlist" sortOrder="15"  
+        resource="Bluethinkinc_ImportWishlist::wishlist"
+        />
+            <add id="Bluethinkinc_ImportWishlist::export" title="Manage Wishlist"
+            translate="title" module="Bluethinkinc_ImportWishlist"
+            parent="Bluethinkinc_ImportWishlist::wishlist" sortOrder="10"
+            resource="Bluethinkinc_ImportWishlist::export" action="csvdata/index/export"
+            dependsOnConfig="importwishlist/general/enable"
+            />
+    </menu>
+</config>
+

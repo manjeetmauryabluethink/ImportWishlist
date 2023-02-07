@@ -1,0 +1,10 @@
+{
+    "customer_entity": {
+        "column": {
+            "email": true
+        },
+        "index": {
+            "CUSTOMER_ENTITY_EMAIL": true
+        }
+    }
+}

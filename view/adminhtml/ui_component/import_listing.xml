@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © BluethinkInc All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+ <argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">import_listing.import_listing_data_source</item>
+			<item name="deps" xsi:type="string">import_listing.import_listing_data_source</item>
+		</item>
+		<item name="label" translate="true" xsi:type="string">General Information</item>
+		<item name="config" xsi:type="array">
+			<item name="dataScope" xsi:type="string">data</item>
+			<item name="namespace" xsi:type="string">import_listing</item>
+		</item>
+            <item name="template" xsi:type="string">templates/form/collapsible</item>
+            <item name="buttons" xsi:type="array"> 
+            <item name="save" xsi:type="string">Bluethinkinc\ImportWishlist\Block\Adminhtml\Wishlist\Edit\SaveButton</item>
+            <item name="back" xsi:type="string">Bluethinkinc\ImportWishlist\Block\Adminhtml\Wishlist\Edit\BackButton</item>
+            </item>
+		
+	</argument> 
+    <dataSource name="import_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Bluethinkinc\ImportWishlist\Model\DataProvider</argument>
+            <argument name="name" xsi:type="string">import_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">wishlist_item_id</argument>
+            <argument name="requestFieldName" xsi:type="string">wishlist_item_id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+		   <settings>
+            <submitUrl path="csvdata/index/save"/>
+        </settings>
+    </dataSource>
+    <fieldset name="employee_details">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true"></item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+        <field name="email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Customer Email</item>
+                     <item name="cols" xsi:type="number">10</item>
+                    <item name="rows" xsi:type="number">5</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">email</item>
+                    <item name="dataScope" xsi:type="string">email</item>
+                     <item name="validation" xsi:type="array">
+                    <item name="required-entry" xsi:type="boolean">true</item>
+                </item>
+                <item name="notice" xsi:type="string" translate="true">please enter comma seperated customer email </item>
+                </item>
+            </argument>
+        </field>
+        <field name="sku">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">sku </item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                        <item name="cols" xsi:type="number">15</item>
+                    <item name="rows" xsi:type="number">10</item>
+                    <item name="source" xsi:type="string">sku</item>
+                    <item name="dataScope" xsi:type="string">sku</item>
+                     <item name="validation" xsi:type="array">
+                    <item name="required-entry" xsi:type="boolean">true</item>
+                </item>
+                 <item name="notice" xsi:type="string" translate="true">please enter comma seperated sku  </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

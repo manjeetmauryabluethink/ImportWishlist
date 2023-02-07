@@ -1,0 +1,50 @@
+<style>
+   #category_importer_note {
+    position: relative;
+    top: 70px;
+    left: 210px;
+}
+.goBack 
+{
+    display:block;
+    float:right;
+    position:relative;
+    bottom: 30px;
+    color:black;
+}
+</style>
+<div class="import-export-inventory-master">
+    <div class="import-inventory-master">
+        <form id="import-form" 
+        action="<?= $block->escapeUrl($block->getUrl('csvdata/index/Csvsave/'))?>"
+         method="post" enctype="multipart/form-data">
+            <?=$block->getBlockHtml('formkey')?>
+            <fieldset class="admin__fieldset admin__fieldset-import-service">
+                <div class="field">
+                        <div class="control">
+                            <a id="category_importer_note" title="Download Sample File"
+                               href="<?= /** @var TYPE_NAME $block */
+                               $block->getDownloadSampleUrl(); ?>">Download sample csv format</a>
+                        </div>
+                    </div>
+                 <div class="fieldset admin__field">
+                    <label for="import_field_source" class="admin__field-label">
+                    <span><?= $block->escapeHtml(__('Import file source'))?>
+                    </span></label>
+                    <div class="admin__field-control">
+                       <input type="file" name="upload_file"></input>
+                    </div>
+                    <div class="primary">
+                    <button type="submit" class="action submit primary" title="Save"><span><?= $block->
+                    escapeHtmlAttr(__('Import ')) ?></span></button>
+                </div>
+                <div class="primary">
+                    <button  class="goBack" ><a href="<?= $block->escapeUrl($block->getUrl('csvdata/index/export')) ?>"><?= $block->escapeHtmlAttr('Go Back')?></a></button>
+                </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © BluethinkInc All rights reserved.
+ * See COPYING.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+ <type name="Bluethinkinc\ImportWishlist\Model\ResourceModel\Grid\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">wishlist_item</argument>
+            <argument name="eventPrefix" xsi:type="string">bluethink_csv_grid_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">bluethink_csv_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Bluethinkinc\ImportWishlist\Model\ResourceModel\Grid</argument>
+        </arguments>
+    </type>
+     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="export_listing_data_source" xsi:type="string">Bluethinkinc\ImportWishlist\Model\ResourceModel\Grid\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magento\Framework\Filesystem\DriverInterface" type="Magento\Framework\Filesystem\Driver\File"/>
+       <preference for="Bluethinkinc\ImportWishlist\Model\ConfigInterface" type="Bluethinkinc\ImportWishlist\Model\Config"/>
+</config>
+
+

@@ -1,0 +1,15 @@
+<!--@subject {{trans "Update to your %store_name " store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var name":"name",
+"var email":"Email",
+"var store.frontend_name":"store.frontend_name"
+} @-->
+<h3>{{trans "Hi, %email." email=$email}} </h3>
+<table class="data table" id="test-data-table">
+    <tbody>
+    <tr>
+        {{layout area="frontend" handle="csv_index_email"  name=$name }}
+    </tr>
+    </tbody>
+
+</table>

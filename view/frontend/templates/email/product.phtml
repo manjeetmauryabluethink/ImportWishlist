@@ -1,0 +1,35 @@
+<?php
+$mydata = $block->productName(); ?>
+<table class="data table" id="test-data-table" border="1" cellpadding="10">
+   <thead>
+      <tr>
+         <th scope="col" class="col author" style="color:green;">Product name</th>
+         <th scope="col" class="col author" style="color:green;">Product price</th>
+         <th scope="col" class="col author" style="color:green;">Product Image</th>
+         <th scope="col" class="col author" style="color:green;">Product Sku</th>
+      </tr>
+   </thead>
+   <tbody>
+      <?php foreach ($mydata as $key => $item) { ?>
+      <tr>
+         <th>
+            <a href="<?= $block->escapeUrl($block->getBaseUrl().$item["urlkey"].".html") ?>">
+                <?= $block->escapeHtmlAttr($item["name"]); ?>
+            </a>
+         </th>
+         <th>
+            <?= $block->escapeHtmlAttr(number_format($item["price"]), 2); ?>
+         </th>
+         </th>
+         <th>
+            <img width="70" height="70" src="<?= $block->escapeUrl($block->getBaseUrl()) .
+                "media/catalog/product" .
+            $block->escapeHtmlAttr($item["image"]); ?>">
+         </th>
+         <th>
+            <?= $block->escapeHtmlAttr($item["sku"]); ?>
+         </th>
+      </tr>
+      <?php } ?>
+   </tbody>
+</table>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © BluethinkInc All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="customer_entity" resource="default" engine="innodb" comment="Customer Entity">
+     <column xsi:type="varchar" name="email" nullable="true" length="255" comment="Email"/>
+       <index referenceId="CUSTOMER_ENTITY_EMAIL" indexType="fulltext">
+            <column name="email"/>
+        </index>
+     </table>
+</schema>
